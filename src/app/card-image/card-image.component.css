@@ -1,0 +1,12 @@
+.hero-card {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+/* .bg-info { */
+  /* background-color: chartreuse !important */
+/* } */
+
+.medium {
+  background-color: chocolate;
+}

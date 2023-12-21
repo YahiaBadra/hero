@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div
+    class="container-fluid d-flex justify-content-between align-items-center"
+    style="background-color: white"
+  >
+    <div>
+      <img
+        src="assets/images/log1.png"
+        alt="Logo"
+        width="80"
+        height="70"
+        class="d-inline-block align-top"
+      />
+    </div>
+    <button
+      class="navbar-toggler btn btn-outline-primary"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          aria-current="page"
+          routerLink="/add"
+          >Add hero</a
+        >
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          aria-current="page"
+          routerLink="/list"
+          >List hero</a
+        >
+      </div>
+    </div>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          aria-current="page"
+          (click)="logout()"
+          >logout</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

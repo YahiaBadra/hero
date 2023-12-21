@@ -1,0 +1,42 @@
+<app-header></app-header>
+<h1 class="text-center mt-5 text-light">Hero App</h1>
+
+<div class="row mt-5">
+  <div class="col-3 mb-4" *ngFor="let item of heroes">
+    <div class="card" style="width: 250px; height: 300px">
+      <div
+        [ngClass]="{
+          'bg-danger': item['power']['integerValue'] <= 20,
+          'bg-warning':
+            item['power']['integerValue'] > 20 &&
+            item['power']['integerValue'] <= 50,
+          'bg-info': item['power']['integerValue'] > 50
+        }"
+      >
+        <img
+          class="card-img-top"
+          [src]="item['imgUrl']['stringValue']"
+          alt="Card image cap"
+          style="height: 300px"
+        />
+        <div class="card-body text-white">
+          <h5 class="card-title">{{ item["name"]["stringValue"] }}</h5>
+          <p class="card-text">Power: {{ item["power"]["integerValue"] }}</p>
+          <button
+            class="btn btn-danger"
+            (click)="delete(item['id']['integerValue'])"
+          >
+            Delete
+          </button>
+          |
+          <button
+            [routerLink]="['/update', item['id']['integerValue']]"
+            class="btn btn-primary"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
