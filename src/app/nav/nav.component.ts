@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -8,67 +9,55 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  private shared = inject(SharedService);
-  private router = inject(Router);
-  private id = 1;
-  hero = {
-    id: 1,
-    name: '',
-    power: 0,
-    imgUrl: '',
-  };
+  heroForm: FormGroup;
 
-  heros: any[] = [];
-
-  ngOnInit(): void {
-    this.shared.getallHeroes().subscribe((heroes: any) => {
-      if (heroes.documents && heroes.documents.length !== null) {
-        this.id = heroes.documents.length + 1;
-        this.hero.id = this.id;
-      }
+  constructor(
+    private shared: SharedService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.heroForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      imgUrl: new FormControl('', Validators.required),
+      power: new FormControl(0, Validators.required),
     });
   }
 
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  private initForm() {
+    let name = '';
+    let imgUrl = '';
+    let power = 0;
+  }
   add() {
-    if (this.hero.name == '') {
-      alert("Please enter the hero's name.");
-      return;
-    } else if (this.hero.imgUrl === '') {
-      alert("Please enter the hero's image.");
-      return;
-    }
+    console.log('Form', this.heroForm?.value);
 
-    const firestoreData = {
-      fields: {
-        id: {
-          integerValue: this.hero.id,
-        },
-        name: {
-          stringValue: this.hero.name,
-        },
-        power: {
-          integerValue: this.hero.power,
-        },
-        imgUrl: {
-          stringValue: this.hero.imgUrl,
-        },
-      },
-    };
-    this.shared.createNewHero(firestoreData).subscribe({
-      error: (error) => {
-        console.log(error);
-        this.hero = {
-          id: 0,
-          name: '',
-          power: 0,
-          imgUrl: '',
-        };
-      },
-
-      next: (hero) => {
-        this.heros.push(hero);
-        this.router.navigateByUrl('/list');
-      },
+    this.shared.fetchHeroes().subscribe((response) => {
+      let lengthHero = 0;
+      if (response !== null) {
+        lengthHero = response.length;
+      }
+      this.shared
+        .addHero(
+          {
+            ...this.heroForm?.value,
+            id: lengthHero,
+          },
+          lengthHero
+        )
+        .subscribe(
+          (response) => {
+            console.log('Hero added successfully!', response);
+            this.router.navigateByUrl('/list');
+          },
+          (error) => {
+            console.error('Error adding hero:', error);
+            // Handle error if the addition fails
+          }
+        );
     });
   }
 }

@@ -8,7 +8,6 @@ import { AuthComponent } from './auth/auth.component';
 import { FirstComponent } from './first/first.component';
 import { AuthGuard } from './auth/shared/auth.guard';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: AuthComponent },

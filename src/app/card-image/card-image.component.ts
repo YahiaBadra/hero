@@ -1,5 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { Hero } from './hero.module';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-image',
@@ -7,49 +9,28 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./card-image.component.css'],
 })
 export class CardImageComponent implements OnInit {
+  id?: number;
   update(arg0: any) {
     throw new Error('Method not implemented.');
   }
   private shared = inject(SharedService);
-  heroes: any[] = [];
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
+  heroes: Hero[] = [];
 
   ngOnInit(): void {
-    this.shared.getallHeroes().subscribe({
-      error: (error) => {
-        console.log(error);
-      },
-      next: (res: any) => {
-        if (res.documents)
-          for (let index = 0; index < res.documents.length; index++) {
-            const element = res.documents[index];
-            this.heroes.push(element.fields);
-          }
-          console.log(this.heroes);
-          
-      },
+    this.shared.fetchHeroes().subscribe((response) => {
+      this.heroes = response;
     });
   }
 
-  delete(id: number) {
-    console.log(id);
-      this.shared.deleteHero(id).subscribe({
-      next: (res: any) => {
-        console.log('Hero deleted:', res);
-      },
-      error: (err: any) => {
-        console.error('Error deleting hero:', err);
-        // Handle error
-      },
+  delete() {
+    this.shared.deleteHero(this.id!).subscribe((response) => {
+      this.router.navigateByUrl('/heroes');
     });
   }
-  // updateHero() {
-  //   this.shared.updateHero(this.id ,this.hero).subscribe({
-  //     next: (res: any) => {
-  //       console.log('Hero deleted:', res);
-  //     },
-  //     error: (err: any) => {
-  //       console.error('Error deleting hero:', err);
-  //     },
-  //   });
-  // }
+  updateHero() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
+  }
 }

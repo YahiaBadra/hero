@@ -16,15 +16,15 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.act.snapshot.paramMap.get('id');
-    this.shared.getHeroById(this.id).subscribe({
-      next(res) {
-        // this.hero=res;
-        console.log(res);
-      },
-      error(err) {
-        console.log(err);
-      },
-    });
+    // this.shared.getHeroById(this.id).subscribe({
+    //   next(res) {
+    //     // this.hero=res;
+    //     console.log(res);
+    //   },
+    //   error(err) {
+    //     console.log(err);
+    //   },
+    // });
     console.log(this.id);
   }
 }
