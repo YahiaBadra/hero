@@ -6,7 +6,7 @@
     <div class="card" style="width: 250px; height: 300px">
       <div
         [ngClass]="{
-          'bg-danger': item.power <= 20,
+          'bg-success': item.power <= 20,
           'bg-warning': item.power > 20 && item.power <= 50,
           'bg-info': item.power > 50
         }"
@@ -20,11 +20,15 @@
         <div class="card-body text-white">
           <h5 class="card-title">{{ item.name }}</h5>
           <p class="card-text">Power: {{ item.power }}</p>
-          <button class="btn btn-danger" (click)="delete()">
+          <button class="btn btn-danger" (click)="delete(item.id)">
             Delete
           </button>
           |
-          <button [routerLink]="['/update', item.id]" class="btn btn-primary" (click)="updateHero()">
+          <button
+            [routerLink]="['/update', item.id]"
+            class="btn btn-primary"
+            (click)="updateHero(item.id)"
+          >
             Edit
           </button>
         </div>

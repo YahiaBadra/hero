@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Hero } from './card-image/hero.module';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,9 @@ export class SharedService {
 
   heros: any[] = [];
 
-  addHero(hero: any, heroId: number) {
+  addHero(hero: Hero, heroId: number) {
     const heroWithId = { ...hero, id: heroId };
-    return this.http.post(
+    return this.http.put(
       `https://app1-ce190-default-rtdb.firebaseio.com/heroes/${heroId}.json`,
       heroWithId
     );
@@ -33,11 +34,12 @@ export class SharedService {
     );
   }
 
-  getHeroById(id: any) {
-    // const getUrl = `${this.firestoreUrl}/${id}`;
-    // return this.http.get(getUrl);
+  getHeroById(id: number): Observable<Hero> {
+    return this.http.get<Hero>(
+      `https://app1-ce190-default-rtdb.firebaseio.com/heroes/${id}.json`
+    );
   }
-  
+
   fetchHeroes() {
     return this.http.get<Hero[]>(
       'https://app1-ce190-default-rtdb.firebaseio.com/heroes.json'

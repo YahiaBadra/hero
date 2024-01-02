@@ -55,7 +55,6 @@ export class NavComponent implements OnInit {
           },
           (error) => {
             console.error('Error adding hero:', error);
-            // Handle error if the addition fails
           }
         );
     });

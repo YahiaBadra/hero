@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./card-image.component.css'],
 })
 export class CardImageComponent implements OnInit {
-  id?: number;
   update(arg0: any) {
     throw new Error('Method not implemented.');
   }
@@ -22,15 +21,20 @@ export class CardImageComponent implements OnInit {
   ngOnInit(): void {
     this.shared.fetchHeroes().subscribe((response) => {
       this.heroes = response;
+
+      // this.heroes = Object.values(this.heroes)
+      //   .filter((hero) => hero !== null)
+      //   .map((heroObj) => Object.values(heroObj)[0]);
     });
   }
 
-  delete() {
-    this.shared.deleteHero(this.id!).subscribe((response) => {
-      this.router.navigateByUrl('/heroes');
+  delete(id: number) {
+    this.shared.deleteHero(id).subscribe((response) => {
+      alert('Deleted successfully.');
+      this.router.navigateByUrl('/add');
     });
   }
-  updateHero() {
-    this.router.navigate(['edit'], { relativeTo: this.route });
+  updateHero(id: number) {
+    this.router.navigateByUrl(`/update/${id}`);
   }
 }

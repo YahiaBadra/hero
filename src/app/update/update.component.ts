@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../shared.service';
+import { Hero } from '../card-image/hero.module';
 
 @Component({
   selector: 'app-update',
@@ -8,23 +9,23 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent implements OnInit {
-  hero: any;
-  id: any;
+  hero?: Hero;
+  id?: number;
+  router = inject(Router);
   constructor(private act: ActivatedRoute, private shared: SharedService) {}
 
-  update() {}
+  update(id: number) {
+    this.shared.updateHero(id, this.hero!).subscribe((response) => {
+      alert('Updated successfully.');
+      this.router.navigateByUrl('/list');
+    });
+  }
 
   ngOnInit(): void {
-    this.id = this.act.snapshot.paramMap.get('id');
-    // this.shared.getHeroById(this.id).subscribe({
-    //   next(res) {
-    //     // this.hero=res;
-    //     console.log(res);
-    //   },
-    //   error(err) {
-    //     console.log(err);
-    //   },
-    // });
-    console.log(this.id);
+    this.id = parseInt(this.act.snapshot.paramMap.get('id')!);
+    this.shared.getHeroById(this.id).subscribe((response: Hero) => {
+      this.hero = response;
+      // Object.values(response)[0];
+    });
   }
 }
