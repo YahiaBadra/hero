@@ -25,7 +25,7 @@ export class UpdateComponent implements OnInit {
     this.id = parseInt(this.act.snapshot.paramMap.get('id')!);
     this.shared.getHeroById(this.id).subscribe((response: Hero) => {
       this.hero = response;
-      // Object.values(response)[0];
+      // console.log(this.hero.description);
     });
   }
 }

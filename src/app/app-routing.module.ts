@@ -7,6 +7,7 @@ import { UpdateComponent } from './update/update.component';
 import { AuthComponent } from './auth/auth.component';
 import { FirstComponent } from './first/first.component';
 import { AuthGuard } from './auth/shared/auth.guard';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'add', component: NavComponent, canActivate: [AuthGuard] },
   { path: 'list', component: CardImageComponent, canActivate: [AuthGuard] },
   { path: 'update/:id', component: UpdateComponent },
+  { path: 'details/:id', component: DetailsComponent },
   { path: 'first', component: FirstComponent },
 
   { path: '**', component: NotfoundComponent },

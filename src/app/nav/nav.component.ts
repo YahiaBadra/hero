@@ -11,15 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class NavComponent implements OnInit {
   heroForm: FormGroup;
 
-  constructor(
-    private shared: SharedService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
+  constructor(private shared: SharedService, private router: Router) {
     this.heroForm = new FormGroup({
       name: new FormControl('', Validators.required),
       imgUrl: new FormControl('', Validators.required),
       power: new FormControl(0, Validators.required),
+      description: new FormControl('', Validators.required),
     });
   }
 
@@ -31,10 +28,9 @@ export class NavComponent implements OnInit {
     let name = '';
     let imgUrl = '';
     let power = 0;
+    let description = '';
   }
   add() {
-    console.log('Form', this.heroForm?.value);
-
     this.shared.fetchHeroes().subscribe((response) => {
       let lengthHero = 0;
       if (response !== null) {

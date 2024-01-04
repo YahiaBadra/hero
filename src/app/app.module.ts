@@ -16,6 +16,7 @@ import { SharedComponent } from './auth/shared/shared.component';
 import { AlertComponent } from './auth/shared/alert/alert.component';
 import { LoadingComponent } from './auth/shared/loading/loading.component';
 import { PlaceholderComponent } from './auth/shared/placeholder/placeholder.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PlaceholderComponent } from './auth/shared/placeholder/placeholder.comp
     AlertComponent,
     LoadingComponent,
     PlaceholderComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

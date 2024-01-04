@@ -28,6 +28,10 @@ export class CardImageComponent implements OnInit {
     });
   }
 
+  details(id: number) {
+    this.router.navigateByUrl(`/details/${id}`);
+  }
+
   delete(id: number) {
     this.shared.deleteHero(id).subscribe((response) => {
       alert('Deleted successfully.');

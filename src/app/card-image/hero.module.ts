@@ -3,6 +3,7 @@ export class Hero {
     public id: number,
     public name: string,
     public power: number,
-    public imgUrl: string
+    public imgUrl: string,
+    public description: string
   ) {}
 }
