@@ -4,7 +4,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-3 col-sm-6 mb-4" *ngFor="let item of heroes">
-      <div class="card" style="cursor: pointer">
+      <div class="card" >
         <div
           [ngClass]="{
             'bg-success': item.power <= 50,
@@ -17,6 +17,7 @@
               [src]="item.imgUrl"
               alt="Card image cap"
               (click)="details(item.id)"
+              style="cursor: pointer"
             />
           </div>
           <div class="card-body text-white">
