@@ -1,10 +1,29 @@
 <app-header></app-header>
 <h1 class="text-center mt-5 text-light">Hero App</h1>
 
+<div class="container hero-section">
+  <div class="row my-5">
+    <div class="col-md-6">
+      <div class="panel">
+        <img src="https://static.wixstatic.com/media/5377a3_4b1eb082295848e1847becfaf6f2ab71~mv2_d_2953_2100_s_2.png/v1/fill/w_636,h_452,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/TSOGHeroes%20Poster%20logo.png" alt="Image" />
+      </div>
+    </div>
+    <div class="col-md-6 mt-5">
+      <div class="panel">
+        <h2 class="hero-title">Story Of Heroes</h2>
+        <p class="hero-description">
+          In narratology and comparative mythology, the hero's journey, also known as the monomyth, is the common template of stories that involve a hero who goes on an adventure, is victorious in a decisive crisis, and comes home changed or transformed.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-3 col-sm-6 mb-4" *ngFor="let item of heroes">
-      <div class="card" >
+      <div class="card">
         <div
           [ngClass]="{
             'bg-success': item.power <= 50,

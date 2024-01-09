@@ -46,3 +46,7 @@ export class SharedService {
     );
   }
 }
+
+function returnArgument<T>(arg: T): T {
+  return arg;
+}

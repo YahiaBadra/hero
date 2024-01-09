@@ -13,20 +13,24 @@ export class DetailsComponent {
   route = inject(ActivatedRoute);
   sharedService = inject(SharedService);
   description?: string;
-  imgUrl?:string;
-  name?:string;
-
+  imgUrl?: string;
+  name?: string;
+  expanded = false;
+  toggleText = 'More';
 
   constructor() {
     this.id = parseInt(this.route.snapshot.paramMap.get('id')!);
-    console.log(this.id);
 
     this.sharedService.getHeroById(this.id).subscribe({
       next: (response: Hero) => {
         this.description = response.description;
-        this.imgUrl=response.imgUrl;
-        this.name=response.name;
+        this.imgUrl = response.imgUrl;
+        this.name = response.name;
       },
     });
+  }
+
+  more() {
+    this.expanded = !this.expanded;
   }
 }

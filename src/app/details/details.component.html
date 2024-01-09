@@ -3,13 +3,29 @@
   <div class="row">
     <div class="col-md-5">
       <div class="image-container">
-        <img class="card-image" [src]="imgUrl" alt="Card image cap" style="width: 430px;height: 550px;" />
+        <img
+          class="card-image"
+          [src]="imgUrl"
+          alt="Card image cap"
+          style="width: 430px; height: 550px"
+        />
       </div>
     </div>
     <div class="col-md-7">
       <div class="mt-5">
-        <h1 class="card-name" style="color: rgb(51, 96, 174);">{{ name }}</h1>
-        <p class="card-description" style="color: white;"  >{{ description }} </p>
+        <h1 class="card-name" style="color: rgb(51, 96, 174)">{{ name }}</h1>
+        <p class="card-description" style="color: white">
+          {{
+            description!.length > 500
+              ? expanded
+                ? description
+                : description?.substring(0, 500) + "..."
+              : description
+          }}
+          <button *ngIf="description!.length > 500" (click)="more()">
+            {{ expanded ? "Less" : "More" }}
+          </button>
+        </p>
       </div>
     </div>
   </div>
