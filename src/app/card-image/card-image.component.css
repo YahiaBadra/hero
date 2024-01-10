@@ -34,11 +34,11 @@
   transform: scale(1.1);
 }
 .hero-section {
-  /* background-color: rgb(0, 0, 0); */
+  /* background-color: rgb(236, 194, 41); */
 }
 
 .hero-title {
-  color: white;
+  color:rgb(236, 194, 41);
   margin-top: 5rem; /* Adjust as needed */
   font-size: 40px;
 }

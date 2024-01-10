@@ -17,6 +17,8 @@ import { AlertComponent } from './auth/shared/alert/alert.component';
 import { LoadingComponent } from './auth/shared/loading/loading.component';
 import { PlaceholderComponent } from './auth/shared/placeholder/placeholder.component';
 import { DetailsComponent } from './details/details.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { DetailsComponent } from './details/details.component';
     LoadingComponent,
     PlaceholderComponent,
     DetailsComponent,
+    FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
