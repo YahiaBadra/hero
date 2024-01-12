@@ -19,6 +19,7 @@ import { PlaceholderComponent } from './auth/shared/placeholder/placeholder.comp
 import { DetailsComponent } from './details/details.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
+import { StoryComponent } from './story/story.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ContactComponent } from './contact/contact.component';
     DetailsComponent,
     FooterComponent,
     ContactComponent,
+    StoryComponent,
   ],
   imports: [
     BrowserModule,

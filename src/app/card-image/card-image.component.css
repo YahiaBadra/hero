@@ -34,11 +34,11 @@
   transform: scale(1.1);
 }
 .hero-section {
-  /* background-color: rgb(236, 194, 41); */
+  background-color:#333;
 }
 
 .hero-title {
-  color:rgb(236, 194, 41);
+  color: rgb(237, 57, 33);
   margin-top: 5rem; /* Adjust as needed */
   font-size: 40px;
 }
@@ -46,4 +46,8 @@
 .hero-description {
   color: white;
   font-size: 20px;
+}
+.carousel-caption {
+  color: aliceblue;
+  font-size: 25px;
 }

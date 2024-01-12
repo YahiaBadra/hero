@@ -9,6 +9,7 @@ import { FirstComponent } from './first/first.component';
 import { AuthGuard } from './auth/shared/auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { ContactComponent } from './contact/contact.component';
+import { StoryComponent } from './story/story.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'details/:id', component: DetailsComponent },
   { path: 'first', component: FirstComponent },
   { path: 'contact', component: ContactComponent },
-
+  { path: 'story', component: StoryComponent },
   { path: '**', component: NotfoundComponent },
 ];
 
