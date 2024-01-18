@@ -22,13 +22,13 @@
                 : description?.substring(0, 500) + "..."
               : description
           }}
-          <button *ngIf="description!.length > 500" (click)="more()">
+          <button type="button" class="btn btn-link" *ngIf="description!.length > 500" (click)="more()">
             {{ expanded ? "Less" : "More" }}
           </button>
         </p>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
 <div class="mt-5">
   <app-footer></app-footer>

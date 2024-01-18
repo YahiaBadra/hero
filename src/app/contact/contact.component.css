@@ -1,49 +1,39 @@
 /* Example CSS for contact page */
 .contact-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 20px;
-  }
-  
-  .contact-info,
-  .contact-form,
-  .map {
-    flex: 1;
-    margin-right: 20px;
-  }
-  
-  .contact-info h2,
-  .contact-form h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .contact-form form input,
-  .contact-form form textarea,
-  .contact-form form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .contact-form form button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .contact-form form button:hover {
-    background-color: #555;
-  }
-  
-  .map {
-    max-width: 100%;
-  }
-  
-  /* Other styles for header, footer, and general page layout */
-  /* ... */
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  padding: 50px 20px;
+}
+
+.contact-info,
+.contact-form,
+.map {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  font-size: 24px;
+}
+
+.contact-form form input,
+.contact-form form textarea,
+.contact-form form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.contact-form form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form form button:hover {
+  background-color: #555;
+}
