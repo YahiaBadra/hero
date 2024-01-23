@@ -1,7 +1,7 @@
 /* Add your global styles here */
 .hero-image {
-    width: 75%; /* Make all images the same size */
-    height: 90%;
+    width: 60%; /* Make all images the same size */
+    height: 70%;
   }
   
   .hero-container {
@@ -20,5 +20,8 @@
     .hero-container {
       flex: 0 0 48%; /* Adjust the width of hero containers for larger screens */
     }
+  }
+  p{
+    font-size: 25px;
   }
   
