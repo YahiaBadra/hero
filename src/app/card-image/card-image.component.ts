@@ -19,7 +19,7 @@ export class CardImageComponent implements OnInit {
   heroes: Hero[] = [];
 
   ngOnInit(): void {
-    this.shared.fetchHeroes().subscribe((response) => {
+    this.shared.fetchHeroes().subscribe((response: Hero[]) => {
       this.heroes = response;
 
       // this.heroes = Object.values(this.heroes)

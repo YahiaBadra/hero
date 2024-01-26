@@ -1,3 +1,16 @@
 .btn{
     background-color: rgba(30, 210, 195, 0.763);
 }
+
+input.ng-touched,
+textarea.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid,
+textarea.ng-valid {
+  border: none;
+}
+
+
+
