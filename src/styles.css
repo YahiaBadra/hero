@@ -1,8 +1,24 @@
+@font-face {
+  font-family: "Reaver";
+  src: url("./assets/fonts/Reaver.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 p {
-  padding: 0;
+  padding: 0 ,0;
   margin: 0;
 }
 
 body {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
+  background-image: url("./assets/images/greyfade.jpg");
+  background-size: cover;
+  background-position: center;
+}
+h2 {
+  font-family: "Reaver", sans-serif;
+}
+h1 {
+  font-family: fantasy;
 }

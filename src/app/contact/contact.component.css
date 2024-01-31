@@ -37,3 +37,6 @@
 .contact-form form button:hover {
   background-color: #555;
 }
+h2,p,svg{
+  color:#fff;
+}
