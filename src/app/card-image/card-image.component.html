@@ -1,11 +1,12 @@
 <app-header></app-header>
+
 <h1 class="text-center mt-5 text-light" style="font-size: 55px">Hero App</h1>
 
-<div class="container hero-section">
+<div class="container-fluid hero-section">
   <div class="row my-5">
     <div class="col-md-6">
       <div class="panel">
-        <img src="assets/images/her1.png" alt="Image" />
+        <img src="assets/images/spider.png" alt="Image" class="img-fluid" />
       </div>
     </div>
     <div class="col-md-6 mt-5">
@@ -25,7 +26,7 @@
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <div class="row">
     <div class="col-md-3 col-sm-6 mb-4" *ngFor="let item of heroes">
       <div class="card">
@@ -42,6 +43,7 @@
               alt="Card image cap"
               (click)="details(item.id)"
               style="cursor: pointer"
+              class="img-fluid"
             />
           </div>
           <div class="card-body text-white">
@@ -68,6 +70,7 @@
       </div>
     </div>
   </div>
+
   <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
       <button
@@ -150,9 +153,10 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="container hero-section">
+
+  <div class="container-fluid hero-section">
     <div class="row my-5">
-      <div class="col-md-5 mx-5">
+      <div class="col-md-5">
         <div class="panel">
           <h2 class="hero-title">Grimstroke</h2>
           <p class="hero-description">
@@ -174,7 +178,11 @@
       </div>
       <div class="col-md-6">
         <div class="image">
-          <img src="assets/images/grimstroke.png" alt="Image" />
+          <img
+            src="assets/images/grimstroke.png"
+            alt="Image"
+            class="img-fluid"
+          />
         </div>
       </div>
     </div>
