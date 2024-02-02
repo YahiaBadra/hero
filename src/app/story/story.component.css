@@ -1,28 +1,23 @@
 /* Add your global styles here */
 .hero-image {
-    width: 60%; /* Make all images the same size */
-    height: 70%;
-  }
-  
-  .hero-container {
-    margin-bottom: 20px;
-  }
-  
-  .hero-story {
-    padding: 20px;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  @media (min-width: 768px) {
-    .hero-container {
-      flex: 0 0 48%; /* Adjust the width of hero containers for larger screens */
-    }
-  }
-  p{
-    font-size: 25px;
-    color: white ;
-  }
-  
+  max-width: 50%;
+  height: auto;
+}
+
+.hero-container {
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+p {
+  font-size: 25px;
+  color: white;
+}
+
+.hero-story {
+  /* text-align: center; Center the paragraph text */
+  padding-top: 150px;
+}
